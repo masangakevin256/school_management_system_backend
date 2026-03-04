@@ -33,18 +33,18 @@ pnpm init
 
 ---
 
-### 3️⃣ Install Dependencies
+### 3️⃣ add Dependencies
 
 #### Production Dependencies
 
 ```bash
-pnpm install express
+pnpm add express
 ```
 
 #### Development Dependencies
 
 ```bash
-pnpm install -D typescript ts-node-dev @types/node @types/express
+pnpm add -D typescript ts-node-dev @types/node @types/express
 ```
 
 ---
