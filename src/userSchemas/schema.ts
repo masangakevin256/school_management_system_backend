@@ -1,17 +1,15 @@
 import Joi from "joi";
-import { create } from "node:domain";
 
+export const validateStudent = (input: unknown) => {
+  const schema = Joi.object({
+    regNo: Joi.string().min(5).required(),
+    name: Joi.string().min(2).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+    phone: Joi.string().pattern(/^[0-9+]+$/).required(),
+    createdAt: Joi.date().optional(),
+    updatedAt: Joi.date().optional()
+  });
 
-export const studentSchema =  (input: any) => {
-    const schema = Joi.object({
-        regNo: Joi.string().required(),
-        name: Joi.string().required(),
-        email: Joi.string().email().required(),
-        password: Joi.string().required(),
-        phone: Joi.string().required(),
-        createAt: Joi.date().optional(),
-        updateAt: Joi.date().optional()
-    })
-
-    return schema.validate(input)
-}
+  return schema.validate(input, { abortEarly: false });
+};

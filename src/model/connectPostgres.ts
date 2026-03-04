@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
 import { Pool } from "pg";
 
+dotenv.config();
 export const pool = new Pool({
   user: "postgres",
   host: "localhost",
   database: "schooldb", 
-  password: "masanga@kevin",
+  password: process.env.PASSWORD,
   port: 5432,
 });
 
 
-console.log(process.env.PASSWORD || "Undefined")
+// console.log(process.env.PASSWORD || "Undefined")
